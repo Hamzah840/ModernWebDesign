@@ -17,11 +17,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
   
   // This function works for when the TOUCH is moved
   window.addEventListener("touchmove", (e) => {
-      e.preventDefault();
       let touch = e.touches[0];
       mouseFollower(touch.clientX, touch.clientY);
-    },
-    { passive: false }
+    }
   );
   // This function works for when the TOUCH is moved
 
