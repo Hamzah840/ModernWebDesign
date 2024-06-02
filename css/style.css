@@ -99,7 +99,7 @@ a {
 }
 
 .nav {
-    /* background-color: #000; */
+    background-color: #000;
     height: 4rem;
     padding: 1.2rem 1.5rem;
     position: sticky;
