@@ -13,47 +13,45 @@
 
 <body>
 
-    <div id="mouseFollower"></div>
-
     <div id="main">
 
         <nav class="nav">
             <div class="nav-header flex">
-                <a href="#" class="logo">Hamzah Haseeb</a>
+                <a href="#" class="logo content">Hamzah Haseeb</a>
                 <div class="menu flex">
                     <div class="menu-items">
-                        <a href="#">Home</a>
-                        <a href="#">About</a>
-                        <a href="#">Services</a>
-                        <a href="#">Portfolio</a>
-                        <a href="#">Contact</a>
+                        <a class="content" href="#">Home</a>
+                        <a class="content" href="#">About</a>
+                        <a class="content" href="#">Services</a>
+                        <a class="content" href="#">Portfolio</a>
+                        <a class="content" href="#">Contact</a>
                     </div>
-                    <div class="menu-toggler ">Menu+</div>
+                    <div class="menu-toggler content">Menu+</div>
                 </div>
             </div>
         </nav>
 
         <div class="hero flex">
             <div class="title">
-                <h1><span class="showTextOnloadFromBottom">FrontEnd</span></h1>
-                <h1><span class="showTextOnloadFromBottom">Developer</span></h1>
+                <h1><span class="showTextOnloadFromBottom content">FrontEnd</span></h1>
+                <h1><span class="showTextOnloadFromBottom content">Developer</span></h1>
                 <a
                     href="https://www.google.com/maps/place/Lucknow,+Uttar+Pradesh/@26.848692,80.9425127,12z/data=!3m1!4b1!4m6!3m5!1s0x399bfd991f32b16b:0x93ccba8909978be7!8m2!3d26.8466937!4d80.946166!16zL20vMDIydHE0?entry=ttu">
-                    <span class="border-bottom showTextOnloadFromTop">Based In Lucknow,India</span>
+                    <span class="border-bottom showTextOnloadFromTop content">Based In Lucknow,India</span>
                 </a>
             </div>
             <div class="hero-bottom flex">
                 <div class="hero-bottom-right flex">
                     <a href="#">
-                        <span class="border-bottom showTextOnloadFromTop">Available For Freelance</span>
+                        <span class="border-bottom showTextOnloadFromTop content">Available For Freelance</span>
                     </a>
                     <p>
-                        <span class="showTextOnloadFromTop">Work From March 2023</span>
+                        <span class="showTextOnloadFromTop content">Work From March 2023</span>
                     </p>
                 </div>
                 <div class="flex hero-bottom-inner opacityVisibleOnload">
                     <a href="#">
-                        <span class="border-bottom rotate-45">Currently Working AT Upwork<i
+                        <span class="border-bottom rotate-45 content">Currently Working AT Upwork<i
                                 class="ri-arrow-right-up-line"></i></span>
                     </a>
                     <div class="icons flex">
@@ -92,29 +90,29 @@
 
         <div class="level-3 flex">
             <div class="about flex">
-                <div class="imgbox">
+                <div class="imgbox remveFllower">
                     <img src="images/Hamzah.jpeg" alt="user">
                 </div>
                 <div class="textbox">
-                    <span>(About Me)</span>
-                    <p>My name is Hamzah Haseeb, and I am a Frontend Developer, Web Designer, and WordPress Developer
+                    <span class="content">(About Me)</span>
+                    <p class="content">My name is Hamzah Haseeb, and I am a Frontend Developer, Web Designer, and WordPress Developer
                         based in Uttar Pradesh, India. With over two years of experience, I specialize in crafting
                         beautiful, functional, and professional websites that are responsive and cross-browser
                         compatible. I am proficient in HTML5, CSS3, JavaScript, WordPress, MySQL, PHP, and Laravel.
                         Passionate about web development, I am committed to continuously enhancing my skills in web
                         design and front-end technologies. I also bring a good sense of humor and a strong passion for
                         my work.</p>
-                    <a href="mailto:hamzahhaseeb840@gmail.com">Let's Talk</a>
+                    <a class="content" href="mailto:hamzahhaseeb840@gmail.com">Let's Talk</a>
                 </div>
             </div>
         </div>
 
         <footer class="flex">
-            <div class="left">
+            <div class="left content">
                 <span>2024&copy;</span>
-                <span>1:52 AM IST</span>
+                <span id="timeDisplay">1:52 AM IST</span>
             </div>
-            <div class="right">
+            <div class="right content">
                 <a href="https://www.upwork.com/freelancers/hamzahhaseeb">
                     <span class="border-bottom">Upwwork</span>
                 </a>
@@ -130,6 +128,7 @@
             </div>
         </footer>
     </div>
+    <div id="mouseFollower"></div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"

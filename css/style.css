@@ -20,9 +20,11 @@ body {
 body {
     background-color: #000;
 }
-h1, h2, h3, h4, h5, h6, a, p, span{
-    z-index: 999999999;
-}
+/* h1, h2, h3, h4, h5, h6, a, p, span {
+    position: relative;
+    z-index: 3;
+} */
+
 #mouseFollower {
     position: absolute;
     top: 0;
@@ -32,10 +34,11 @@ h1, h2, h3, h4, h5, h6, a, p, span{
     background-color: #fff;
     /* opacity: 0.7; */
     border-radius: 100%;
-    z-index: 999;
+    /* z-index: 1; */
     pointer-events: none;
     transition: cubic-bezier(0.19, 1, 0.22, 1) 0.6s;
     transform: translate(0, 0) scale(0, 0);
+    mix-blend-mode: difference;
 }
 .showTextOnloadFromTop {
     transform: translateY(-100%);
@@ -96,11 +99,11 @@ a {
 }
 
 .nav {
-    background-color: #000;
+    /* background-color: #000; */
     height: 4rem;
     padding: 1.2rem 1.5rem;
     position: sticky;
-    top: 0;
+    top: 10px;
     z-index: 2;
 }
 

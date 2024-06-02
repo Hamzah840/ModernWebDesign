@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   tl.to(".opacityVisibleOnload", { opacity: 1 }, "-=100%");
 
   // MOUSE FOLLOWER CIRCLE
+  let contentText = document.querySelectorAll(".content");
   let circle = document.querySelector("#mouseFollower");
   let timeout,
     xprev = 0,
@@ -42,6 +43,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
         e.clientY - 5
       }px) scale(1,1)`;
     }, 100);
+
+    if (e.target.closest('.content')) {
+      clearTimeout(timeout);
+      circle.style.transform = `translate(${e.clientX - 5}px, ${
+        e.clientY - 5
+      }px) scale(${x*4}, ${y*4})`;
+    }
+    
   }
   window.addEventListener("mousemove", mouseFollower);
   // MOUSE FOLLOWER CIRCLE
@@ -59,46 +68,63 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   // IMAGE MOVEMENT
   let moveImage = document.querySelectorAll(".level-2-child");
-  moveImage.forEach((elem)=>{
-    elem.addEventListener('mousemove', imageMover);
-    elem.addEventListener('mouseleave', imageHider);
+  moveImage.forEach((elem) => {
+    elem.addEventListener("mousemove", imageMover);
+    elem.addEventListener("mouseleave", imageHider);
   });
-  
+
   // Mouse Leave from current element
   function imageHider(e) {
-    let img = e.currentTarget.querySelector('img');
+    let img = e.currentTarget.querySelector("img");
     gsap.to(img, {
       autoAlpha: 0,
       duration: 0.5,
-      ease: 'power3.InOut',
+      ease: "power3.InOut",
     });
   }
   // Mouse Leave from current element
-  
+
   // Mouse move on current target element
-  let lastClientX = 0, rotate = 0;
+  let lastClientX = 0,
+    rotate = 0;
   function imageMover(e) {
-    let img = e.currentTarget.querySelector('img');
+    let img = e.currentTarget.querySelector("img");
 
     let diffTop = e.currentTarget.getBoundingClientRect().y;
-    let dtop = e.clientY - diffTop - (img.offsetHeight/2);
+    let dtop = e.clientY - diffTop - img.offsetHeight / 2;
     let diffLeft = e.currentTarget.getBoundingClientRect().x;
-    let dleft = e.clientX - diffLeft - (img.offsetWidth/2);
+    let dleft = e.clientX - diffLeft - img.offsetWidth / 2;
 
     rotate = e.clientX - lastClientX;
     lastClientX = e.clientX;
-    
+
     gsap.to(img, {
       autoAlpha: 1,
       duration: 0.5,
       y: dtop,
       x: dleft,
-      ease: 'power3.InOut',
-      rotate: gsap.utils.clamp(-20, 20, rotate)
+      ease: "power3.InOut",
+      rotate: gsap.utils.clamp(-20, 20, rotate),
     });
   }
   // Mouse move on current target element
   // IMAGE MOVEMENT
+
+
+  function formatTime() {
+    const now = new Date();
+    let hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+    const amPm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    const minutesFormatted = minutes < 10 ? '0' + minutes : minutes;
+    const secondsFormatted = seconds < 10 ? '0' + seconds : seconds;
+    const formattedTime = `${hours}:${minutesFormatted}:${secondsFormatted} ${amPm} IST`;
+    document.getElementById('timeDisplay').innerText = formattedTime;
+}
+setInterval(formatTime, 1000);
 
 
 });
