@@ -410,18 +410,67 @@ footer .right a {
     text-transform: uppercase;
     font-size: 14px;
 }
-
+.menu-mobile {
+    display: none;
+}
 @media screen and (max-width:768px) {
     #mouseFollower {
         display: none;
     }
-    .menu .menu-items a {
+    .menu {
         display: none;
-        transform: translateY(0);
+    }
+    .menu-mobile {
+        display: block;
+    }
+    .nav {
+        transition: 0.4s;
+    }
+    .nav.active {
+        background-color: #a3a3a3;
+        border-bottom: 1px solid #fff7;
+    }
+    .nav.active .logo {
+        color: #000;
+        transition: 0.4s;
     }
 
-    .menu .menu-toggler {
-        transform: translateY(0) !important;
+    .menu-toggler-mobile {
+        cursor: pointer;
+        color: #000;
+        text-transform: uppercase;
+        display: flex;
+        flex-direction: column;
+        transform: translateY(10px);
+        transition: 0.4s;
+    }
+    .menu-toggler-mobile.active {
+        transform: translateY(-10px);
+    }
+    .nav.active .menu-toggler-mobile span{
+        color: #000;
+    }
+    .menu-items-mobile {
+        position: absolute;
+        top: 4rem;
+        left: 0;
+        width: 100%;
+        height: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        transition: 0.4s ease-in;
+        overflow: hidden;
+        background-color: #a3a3a3;
+    }
+    .nav.active .menu-items-mobile {
+        height: 90vh;
+    }
+    .menu-items-mobile a{
+        font-size: 10vw;
+        margin: 1.5rem;
+        color: #000;
     }
 
     .hero{

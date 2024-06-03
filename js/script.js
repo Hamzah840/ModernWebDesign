@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   let menuToggler = document.querySelector(".menu-toggler");
   let tween1 = gsap.to(menuToggler, {y: 10, paused: true});
   let tween2 = gsap.to('.menu-items a', {y: 20,stagger: 0.1, paused: true});
-  menuToggler.onclick = (e) => {
+  menuToggler.onclick = () => {
     tween1.play();
     tween2.play();
   };
@@ -135,6 +135,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
     tween1.play().reverse();
     tween2.play().reverse();
 });
+
+let menuTogglerMobile = document.querySelector(".menu-toggler-mobile");
+let nav = document.querySelector(".nav");
+menuTogglerMobile.onclick = () => {
+  nav.classList.toggle('active');
+  menuTogglerMobile.classList.toggle('active');
+}
 
 
 
