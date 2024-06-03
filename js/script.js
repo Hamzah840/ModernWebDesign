@@ -44,13 +44,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
       }px) scale(1,1)`;
     }, 100);
 
-    if (e.target.closest('.content')) {
+    if (e.target.closest(".content")) {
       clearTimeout(timeout);
       circle.style.transform = `translate(${e.clientX - 5}px, ${
         e.clientY - 5
-      }px) scale(${x*4}, ${y*4})`;
+      }px) scale(${x * 4}, ${y * 4})`;
     }
-    
   }
   window.addEventListener("mousemove", mouseFollower);
   // MOUSE FOLLOWER CIRCLE
@@ -110,21 +109,33 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // Mouse move on current target element
   // IMAGE MOVEMENT
 
-
   function formatTime() {
     const now = new Date();
     let hours = now.getHours();
     const minutes = now.getMinutes();
     const seconds = now.getSeconds();
-    const amPm = hours >= 12 ? 'PM' : 'AM';
+    const amPm = hours >= 12 ? "PM" : "AM";
     hours = hours % 12;
     hours = hours ? hours : 12;
-    const minutesFormatted = minutes < 10 ? '0' + minutes : minutes;
-    const secondsFormatted = seconds < 10 ? '0' + seconds : seconds;
+    const minutesFormatted = minutes < 10 ? "0" + minutes : minutes;
+    const secondsFormatted = seconds < 10 ? "0" + seconds : seconds;
     const formattedTime = `${hours}:${minutesFormatted}:${secondsFormatted} ${amPm} IST`;
-    document.getElementById('timeDisplay').innerText = formattedTime;
-}
-setInterval(formatTime, 1000);
+    document.getElementById("timeDisplay").innerText = formattedTime;
+  }
+  setInterval(formatTime, 1000);
+
+  let menuToggler = document.querySelector(".menu-toggler");
+  let tween1 = gsap.to(menuToggler, {y: 10, paused: true});
+  let tween2 = gsap.to('.menu-items a', {y: 20,stagger: 0.1, paused: true});
+  menuToggler.onclick = (e) => {
+    tween1.play();
+    tween2.play();
+  };
+  scroll.on('scroll', (instance) => {
+    tween1.play().reverse();
+    tween2.play().reverse();
+});
+
 
 
 });
